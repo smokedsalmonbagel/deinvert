@@ -3,6 +3,19 @@
 deinvert is a voice inversion scrambler and descrambler. It supports simple
 inversion as well as split-band inversion.
 
+This is a fork of https://github.com/windytan/deinvert
+To run deinvert in Docker.  
+- dockerfile to build environment for deinvert
+- uses ffmpeg to convert audio files to wav (works with mp3 etc.)
+- passes deinvert args through
+- includes sample inverted audio file.
+Usage: 
+
+```
+docker build . -t deinvert
+docker run -v ${PWD}/myaudio:/work/audio deinvert -i /work/audio/myfile.wav -o /work/audio/output.wav -p 7
+```
+
 ## Prerequisites
 By default, deinvert requires liquid-dsp, libsndfile, and GNU autotools. On
 Ubuntu, these can be installed like so:
